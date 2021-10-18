@@ -1,23 +1,60 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import React from 'react';
+import { Preloader, Placeholder } from 'react-preloading-screen';
+import NoSSR from 'react-no-ssr';
+import Navigation from '../components/Navigation/Navigation';
+import Loader from '../components/Shared/Loader';
+import Slider from '../components/HomeFourteen/Slider';
+import About from '../components/HomeTwo/About';
+import Tokenomics from '../components/HomeTwo/Tokenomics';
+import Faq from '../components/HomeTwo/Faq';
+import Screenshots from '../components/Common/Screenshots';
 
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import Team from '../components/HomeTwo/Team';
+import AppDownload from '../components/HomeTwo/AppDownload';
+import Roadmap from '../components/HomeTwo/Roadmap';
+import Footer from '../components/Common/Footer';
+import GoTop from '../components/Common/GoTop';
 
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
+class Index extends React.Component {
+    render(){
+        return(
+            <NoSSR key="1">
+                <Preloader fadeDuration={1000}>
 
-      <Footer />
-    </div>
-  )
+                    <Navigation />
+
+                    <Slider />
+
+                    <About />
+
+                    <Tokenomics />
+
+                    <Faq />
+
+                    <Screenshots />
+
+
+
+
+                    <Team />
+
+                    <AppDownload />
+
+                    <Roadmap />
+
+
+                    <Footer />
+
+                    <GoTop scrollStepInPx="50" delayInMs="16.66" />
+
+                    <Placeholder>
+                        <Loader />
+                    </Placeholder>
+                    
+                </Preloader>
+            </NoSSR>
+        );
+    }
 }
+
+export default Index;
